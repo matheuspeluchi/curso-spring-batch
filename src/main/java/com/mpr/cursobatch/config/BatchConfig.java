@@ -24,30 +24,31 @@ public class BatchConfig {
   // .incrementer(new RunIdIncrementer()).build();
   // }
 
-  @Bean
-  public Step printEvenOrOddStep(JobRepository jobRepository,
-      PlatformTransactionManager transactionManager) {
-    return new StepBuilder("Step-PrintEvenOrOdd", jobRepository)
-        .<Integer, String>chunk(10, transactionManager).reader(countReader())
-        .processor(numberProcessor()).writer(printWriter()).build();
+  // @Bean
+  // public Step printEvenOrOddStep(JobRepository jobRepository,
+  // PlatformTransactionManager transactionManager) {
+  // return new StepBuilder("Step-PrintEvenOrOdd", jobRepository)
+  // .<Integer, String>chunk(10, transactionManager).reader(countReader())
+  // .processor(numberProcessor()).writer(printWriter()).build();
 
-  }
+  // }
 
 
 
-  private IteratorItemReader<Integer> countReader() {
-    List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
-    return new IteratorItemReader<>(numbers.iterator());
-  }
+  // private IteratorItemReader<Integer> countReader() {
+  // List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+  // return new IteratorItemReader<>(numbers.iterator());
+  // }
 
-  private FunctionItemProcessor<Integer, String> numberProcessor() {
-    return new FunctionItemProcessor<>((item -> item % 2 == 0 ? String.format("Item %s é Par", item)
-        : String.format("Item %s é Ímpar", item)));
-  }
+  // private FunctionItemProcessor<Integer, String> numberProcessor() {
+  // return new FunctionItemProcessor<>((item -> item % 2 == 0 ? String.format("Item %s é Par",
+  // item)
+  // : String.format("Item %s é Ímpar", item)));
+  // }
 
-  private ItemWriter<String> printWriter() {
-    return itens -> itens.forEach((System.out::println));
-  }
+  // private ItemWriter<String> printWriter() {
+  // return itens -> itens.forEach((System.out::println));
+  // }
 }
 
 

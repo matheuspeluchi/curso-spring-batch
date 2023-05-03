@@ -1,4 +1,4 @@
-package com.mpr.cursobatch.jobs;
+package com.mpr.cursobatch.jobs.job;
 
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
@@ -9,14 +9,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class PrintNameJob {
-
+public class JdbSkipExceptionCursorJob {
 
   @Bean
-  public Job printMessage(JobRepository jobRepository, Step step) {
-    return new JobBuilder("print-message", jobRepository).start(step)
-        .incrementer(new RunIdIncrementer()).build();
+  public Job printDatabaseClients(JobRepository jobRepository, Step step) {
+    return new JobBuilder("PrintDatabaseClients", jobRepository)
+        .start(step)
+        .incrementer(new RunIdIncrementer())
+        .build();
   }
-
-
 }
