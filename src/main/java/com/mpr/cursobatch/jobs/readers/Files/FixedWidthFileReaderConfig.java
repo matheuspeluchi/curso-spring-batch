@@ -13,7 +13,7 @@ import com.mpr.cursobatch.domain.Client;
 @Configuration
 public class FixedWidthFileReaderConfig {
 
-  @Bean
+  // @Bean
   @StepScope
   public FlatFileItemReader<Client> fixedWidthFileReader(
       @Value("#{jobParameters['clientFile']}") Resource clientFile) {

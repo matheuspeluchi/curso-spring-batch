@@ -9,13 +9,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class JdbSkipExceptionCursorJob {
+public class ValidateReadedFileJob {
 
   // @Bean
-  public Job printDatabaseClients(JobRepository jobRepository, Step step) {
-    return new JobBuilder("PrintDatabaseClients", jobRepository)
-        .start(step)
-        .incrementer(new RunIdIncrementer())
-        .build();
+  public Job validateFile(JobRepository jobRepository, Step step) {
+    return new JobBuilder("ValidateReadedFileJob", jobRepository).start(step)
+        .incrementer(new RunIdIncrementer()).build();
   }
+
+
 }

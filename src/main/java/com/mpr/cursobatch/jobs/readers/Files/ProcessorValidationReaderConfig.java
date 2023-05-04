@@ -7,20 +7,23 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
-import com.mpr.cursobatch.domain.Client;
+import com.mpr.cursobatch.domain.SingleClient;
 
 @Configuration
-public class DelimiterFileReaderConfig {
+public class ProcessorValidationReaderConfig {
 
-  // @Bean
   @StepScope
-  public FlatFileItemReader<Client> delimiterFileReader(
-      @Value("#{jobParameters['clientFile']}") Resource clientFile) {
-
-    return new FlatFileItemReaderBuilder<Client>().name("delimiterFileReader")
-        .resource(clientFile)
+  @Bean
+  public FlatFileItemReader<SingleClient> processorValidationReader(
+      @Value("#{jobParameters['clientFiles']}") Resource clientsFile) {
+    return new FlatFileItemReaderBuilder<SingleClient>()
+        .name("processorValidationReader")
+        .resource(clientsFile)
         .delimited()
-        .names("name", "lastName", "age", "email").targetType(Client.class)
+        .names("name", "age", "email")
+        .targetType(
+            SingleClient.class)
         .build();
   }
+
 }
