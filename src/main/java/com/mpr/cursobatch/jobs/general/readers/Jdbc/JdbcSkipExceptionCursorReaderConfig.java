@@ -9,15 +9,15 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.RowMapper;
-import com.mpr.cursobatch.domain.Client;
+import com.mpr.cursobatch.domain.ClientWithTransaction;
 
 @Configuration
 public class JdbcSkipExceptionCursorReaderConfig {
 
   // @Bean
-  public ItemReader<Client> jdbcSkipExceptionCursorItemReader(
+  public ItemReader<ClientWithTransaction> jdbcSkipExceptionCursorItemReader(
       @Qualifier("appDataSource") DataSource dataSource) {
-    return new JdbcCursorItemReaderBuilder<Client>()
+    return new JdbcCursorItemReaderBuilder<ClientWithTransaction>()
         .name("jdbcSkipExceptionCursorItemReader")
         .dataSource(dataSource)
         .sql("select * from customer")
@@ -25,10 +25,10 @@ public class JdbcSkipExceptionCursorReaderConfig {
         .build();
   }
 
-  private RowMapper<Client> rowMapper() {
-    return new RowMapper<Client>() {
+  private RowMapper<ClientWithTransaction> rowMapper() {
+    return new RowMapper<ClientWithTransaction>() {
       @Override
-      public Client mapRow(ResultSet rs, int rowNum) throws SQLException {
+      public ClientWithTransaction mapRow(ResultSet rs, int rowNum) throws SQLException {
         if (rs.getRow() <= 11)
           throw new SQLException(
               String.format("Encerrando a execução - Cliente Inválido %s", rs.getString("email")));
@@ -38,8 +38,8 @@ public class JdbcSkipExceptionCursorReaderConfig {
     };
   }
 
-  protected Client clientRowMapper(ResultSet rs) throws SQLException {
-    Client client = new Client();
+  protected ClientWithTransaction clientRowMapper(ResultSet rs) throws SQLException {
+    ClientWithTransaction client = new ClientWithTransaction();
     client.setName(rs.getString("name"));
     client.setLastName(rs.getString("lastName"));
     client.setAge(rs.getString("age"));

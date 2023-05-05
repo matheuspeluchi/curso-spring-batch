@@ -7,11 +7,11 @@ import org.springframework.batch.item.file.FlatFileItemReader;
 import org.springframework.batch.item.file.ResourceAwareItemReaderItemStream;
 import org.springframework.core.io.Resource;
 import org.springframework.lang.Nullable;
-import com.mpr.cursobatch.domain.Client;
-import com.mpr.cursobatch.domain.ClientsTransaction;
+import com.mpr.cursobatch.domain.ClientWithTransaction;
+import com.mpr.cursobatch.domain.Transaction;
 
-public class ClientTransactionFileReader implements ItemStreamReader<Client>,
-    ResourceAwareItemReaderItemStream<Client> {
+public class ClientTransactionFileReader implements ItemStreamReader<ClientWithTransaction>,
+    ResourceAwareItemReaderItemStream<ClientWithTransaction> {
 
 
   private Object currentObject;
@@ -38,17 +38,17 @@ public class ClientTransactionFileReader implements ItemStreamReader<Client>,
 
   @Override
   @Nullable
-  public Client read() throws Exception {
+  public ClientWithTransaction read() throws Exception {
     if (currentObject == null) {
       currentObject = delegate.read();
     }
 
-    Client client = (Client) currentObject;
+    ClientWithTransaction client = (ClientWithTransaction) currentObject;
     currentObject = null;
 
     if (client != null) {
-      while (peek() instanceof ClientsTransaction)
-        client.getTransactions().add((ClientsTransaction) currentObject);
+      while (peek() instanceof Transaction)
+        client.getTransactions().add((Transaction) currentObject);
     }
     return client;
   }

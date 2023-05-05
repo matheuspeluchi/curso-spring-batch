@@ -7,7 +7,7 @@ import org.springframework.batch.item.database.JdbcPagingItemReader;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.PlatformTransactionManager;
-import com.mpr.cursobatch.domain.Client;
+import com.mpr.cursobatch.domain.ClientWithTransaction;
 import com.mpr.cursobatch.jobs.general.wirters.DefaultWriterConfig;
 
 @Configuration
@@ -18,7 +18,7 @@ public class JdbcPagingStepConfig {
   @SuppressWarnings({"unchecked"})
   public Step jdbcPagingStep(JobRepository jobRepository,
       PlatformTransactionManager transactionManager,
-      JdbcPagingItemReader<Client> jdbcPagingItemReader) {
+      JdbcPagingItemReader<ClientWithTransaction> jdbcPagingItemReader) {
 
     return new StepBuilder("jdbcPagingStep", jobRepository)
         .chunk(1, transactionManager)

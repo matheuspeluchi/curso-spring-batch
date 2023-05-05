@@ -1,4 +1,4 @@
-package com.mpr.cursobatch.jobs.fileReadercase.step;
+package com.mpr.cursobatch.jobs.filereadercase.step;
 
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.repository.JobRepository;
@@ -7,7 +7,7 @@ import org.springframework.batch.item.file.MultiResourceItemReader;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.PlatformTransactionManager;
-import com.mpr.cursobatch.domain.Client;
+import com.mpr.cursobatch.domain.ClientWithTransaction;
 import com.mpr.cursobatch.jobs.general.wirters.DefaultWriterConfig;
 
 @Configuration
@@ -18,7 +18,7 @@ public class FileReaderStepConfig {
   @SuppressWarnings({"unchecked"})
   public Step fixedWidthFileReaderStep(JobRepository jobRepository,
       PlatformTransactionManager transactionManager,
-      MultiResourceItemReader<Client> multiplesFilesClientsTransactionsReader) {
+      MultiResourceItemReader<ClientWithTransaction> multiplesFilesClientsTransactionsReader) {
 
     return new StepBuilder("FileReaderConfigStep", jobRepository)
         .chunk(1, transactionManager)

@@ -7,7 +7,7 @@ import org.springframework.batch.item.ItemReader;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.PlatformTransactionManager;
-import com.mpr.cursobatch.domain.Client;
+import com.mpr.cursobatch.domain.ClientWithTransaction;
 import com.mpr.cursobatch.jobs.general.wirters.DefaultWriterConfig;
 
 @Configuration
@@ -18,7 +18,7 @@ public class JdbcSkipExceptionCursorStepConfig {
   @SuppressWarnings({"unchecked"})
   public Step jdbcReaderStep(JobRepository jobRepository,
       PlatformTransactionManager transactionManager,
-      ItemReader<Client> jdbcSkipExceptionCursorItemReader) {
+      ItemReader<ClientWithTransaction> jdbcSkipExceptionCursorItemReader) {
 
     return new StepBuilder("jdbcReaderStep", jobRepository)
         .chunk(1, transactionManager)

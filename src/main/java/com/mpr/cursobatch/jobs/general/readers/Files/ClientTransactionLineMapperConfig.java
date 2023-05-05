@@ -9,8 +9,8 @@ import org.springframework.batch.item.file.transform.DelimitedLineTokenizer;
 import org.springframework.batch.item.file.transform.LineTokenizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import com.mpr.cursobatch.domain.Client;
-import com.mpr.cursobatch.domain.ClientsTransaction;
+import com.mpr.cursobatch.domain.ClientWithTransaction;
+import com.mpr.cursobatch.domain.Transaction;
 
 @Configuration
 public class ClientTransactionLineMapperConfig {
@@ -27,8 +27,8 @@ public class ClientTransactionLineMapperConfig {
   @SuppressWarnings({"rawtypes"})
   private Map<String, FieldSetMapper> fieldSetMappers() {
     Map<String, FieldSetMapper> fieldSetMappers = new HashMap<>();
-    fieldSetMappers.put("0*", fieldSetMapper(Client.class));
-    fieldSetMappers.put("1*", fieldSetMapper(ClientsTransaction.class));
+    fieldSetMappers.put("0*", fieldSetMapper(ClientWithTransaction.class));
+    fieldSetMappers.put("1*", fieldSetMapper(Transaction.class));
     return fieldSetMappers;
   }
 

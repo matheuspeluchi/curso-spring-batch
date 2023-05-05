@@ -6,11 +6,11 @@ import org.springframework.batch.item.support.builder.ClassifierCompositeItemPro
 import org.springframework.classify.Classifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import com.mpr.cursobatch.domain.Client;
+import com.mpr.cursobatch.domain.ClientWithTransaction;
 import com.mpr.cursobatch.jobs.general.processors.ClientProcessor;
 import com.mpr.cursobatch.jobs.general.processors.TransactionProcessor;
 
-@Configuration
+// @Configuration
 public class ClassifierProcessorConfig {
 
   @Bean
@@ -25,7 +25,7 @@ public class ClassifierProcessorConfig {
 
       @Override
       public ItemProcessor classify(Object classifiable) {
-        if (classifiable instanceof Client)
+        if (classifiable instanceof ClientWithTransaction)
           return new ClientProcessor();
         else
           return new TransactionProcessor();

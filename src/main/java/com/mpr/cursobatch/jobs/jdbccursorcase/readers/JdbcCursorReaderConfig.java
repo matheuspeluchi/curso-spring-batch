@@ -7,19 +7,19 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import com.mpr.cursobatch.domain.Client;
+import com.mpr.cursobatch.domain.ClientWithTransaction;
 
 @Configuration
 public class JdbcCursorReaderConfig {
 
   // @Bean
-  public JdbcCursorItemReader<Client> jdbcCursorItemReader(
+  public JdbcCursorItemReader<ClientWithTransaction> jdbcCursorItemReader(
       @Qualifier("appDataSource") DataSource dataSource) {
-    return new JdbcCursorItemReaderBuilder<Client>()
+    return new JdbcCursorItemReaderBuilder<ClientWithTransaction>()
         .name("jdbcCursorItemReader")
         .dataSource(dataSource)
         .sql("select * from customer")
-        .rowMapper(new BeanPropertyRowMapper<Client>(Client.class))
+        .rowMapper(new BeanPropertyRowMapper<ClientWithTransaction>(ClientWithTransaction.class))
         .build();
   }
 

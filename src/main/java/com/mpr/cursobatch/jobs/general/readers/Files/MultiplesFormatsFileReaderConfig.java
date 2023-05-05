@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
-import com.mpr.cursobatch.domain.Client;
+import com.mpr.cursobatch.domain.ClientWithTransaction;
 
 @Configuration
 public class MultiplesFormatsFileReaderConfig {
@@ -19,7 +19,7 @@ public class MultiplesFormatsFileReaderConfig {
       @Value("#{jobParameters['clientFile']}") Resource clientFile,
       LineMapper lineMapper) {
 
-    return new FlatFileItemReaderBuilder<Client>()
+    return new FlatFileItemReaderBuilder<ClientWithTransaction>()
         .name("multiplesFormatsFileReader")
         .resource(clientFile)
         .lineMapper(lineMapper)

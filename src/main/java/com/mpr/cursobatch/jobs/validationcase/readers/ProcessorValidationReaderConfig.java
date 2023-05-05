@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
 import com.mpr.cursobatch.domain.SingleClient;
 
-@Configuration
+// @Configuration
 public class ProcessorValidationReaderConfig {
 
   @StepScope

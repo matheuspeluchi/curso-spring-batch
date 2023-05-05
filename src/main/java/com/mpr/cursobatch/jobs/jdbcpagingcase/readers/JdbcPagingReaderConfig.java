@@ -11,21 +11,21 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import com.mpr.cursobatch.domain.Client;
+import com.mpr.cursobatch.domain.ClientWithTransaction;
 
 @Configuration
 public class JdbcPagingReaderConfig {
 
   // @Bean
-  public JdbcPagingItemReader<Client> jdbcPagingItemReader(
+  public JdbcPagingItemReader<ClientWithTransaction> jdbcPagingItemReader(
       @Qualifier("appDataSource") DataSource dataSource, PagingQueryProvider queryProvider) {
 
-    return new JdbcPagingItemReaderBuilder<Client>()
+    return new JdbcPagingItemReaderBuilder<ClientWithTransaction>()
         .name("jdbcPagingItemReader")
         .dataSource(dataSource)
         .queryProvider(queryProvider)
         .pageSize(1)
-        .rowMapper(new BeanPropertyRowMapper<Client>(Client.class))
+        .rowMapper(new BeanPropertyRowMapper<ClientWithTransaction>(ClientWithTransaction.class))
         .build();
   }
 

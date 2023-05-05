@@ -1,4 +1,4 @@
-package com.mpr.cursobatch.jobs.bankcase.job;
+package com.mpr.cursobatch.jobs.flatfilewritercase.job;
 
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
@@ -8,15 +8,16 @@ import org.springframework.batch.core.repository.JobRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+
 // @Configuration
-public class ContasBancariasJob {
+public class FlatFileJob {
 
   @Bean
-  public Job contaBancaria(JobRepository repository, Step step) {
-    return new JobBuilder("ContasBancariasJob", repository)
+  public Job flatFile(JobRepository jobRepository, Step step) {
+    return new JobBuilder("flatFile", jobRepository)
         .start(step)
         .incrementer(new RunIdIncrementer())
         .build();
-
   }
 }
+

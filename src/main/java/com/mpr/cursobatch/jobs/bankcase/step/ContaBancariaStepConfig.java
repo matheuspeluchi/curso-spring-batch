@@ -12,7 +12,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import com.mpr.cursobatch.domain.BankAccount;
 import com.mpr.cursobatch.domain.BankClient;
 
-@Configuration
+// @Configuration
 public class ContaBancariaStepConfig {
 
   @Bean
