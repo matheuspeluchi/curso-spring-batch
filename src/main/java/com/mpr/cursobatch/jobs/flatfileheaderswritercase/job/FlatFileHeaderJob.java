@@ -14,7 +14,7 @@ public class FlatFileHeaderJob {
 
   @Bean
   public Job flatFile(JobRepository jobRepository, Step step) {
-    return new JobBuilder("flatFile", jobRepository)
+    return new JobBuilder("FlatFileHeader", jobRepository)
         .start(step)
         .incrementer(new RunIdIncrementer())
         .build();

@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.WritableResource;
-import com.mpr.cursobatch.domain.Client;
+import com.mpr.cursobatch.domain.client.Client;
 
 @Configuration
 public class FlatFileHeaderWriterConfig {
@@ -18,7 +18,7 @@ public class FlatFileHeaderWriterConfig {
     return new FlatFileItemWriterBuilder<Client>()
         .name("flatFileFixedWidthWriter")
         .resource(clientOutfile)
-        .delimited()
+        .delimited()90090
         .delimiter(";")
         .names("name", "lastName", "age", "email")
         .build();

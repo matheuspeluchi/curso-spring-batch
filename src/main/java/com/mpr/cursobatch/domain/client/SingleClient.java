@@ -1,4 +1,4 @@
-package com.mpr.cursobatch.domain;
+package com.mpr.cursobatch.domain.client;
 
 
 import org.hibernate.validator.constraints.Range;

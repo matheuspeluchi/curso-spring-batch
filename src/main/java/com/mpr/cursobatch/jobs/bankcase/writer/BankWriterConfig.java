@@ -3,7 +3,7 @@ package com.mpr.cursobatch.jobs.bankcase.writer;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import com.mpr.cursobatch.domain.BankAccount;
+import com.mpr.cursobatch.domain.bank.BankAccount;
 
 @Configuration
 public class BankWriterConfig {

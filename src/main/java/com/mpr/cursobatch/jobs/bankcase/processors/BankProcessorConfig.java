@@ -4,8 +4,8 @@ import org.springframework.batch.item.ItemProcessor;
 import org.springframework.batch.item.support.builder.ClassifierCompositeItemProcessorBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import com.mpr.cursobatch.domain.BankAccount;
-import com.mpr.cursobatch.domain.BankClient;
+import com.mpr.cursobatch.domain.bank.BankAccount;
+import com.mpr.cursobatch.domain.bank.BankClient;
 
 @Configuration
 public class BankProcessorConfig {

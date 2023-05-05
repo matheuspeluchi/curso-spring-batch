@@ -4,7 +4,7 @@ import org.springframework.batch.item.ItemProcessor;
 import org.springframework.batch.item.support.builder.ScriptItemProcessorBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import com.mpr.cursobatch.domain.SingleClient;
+import com.mpr.cursobatch.domain.client.SingleClient;
 
 @Configuration
 public class ScriptProcessorConfig {

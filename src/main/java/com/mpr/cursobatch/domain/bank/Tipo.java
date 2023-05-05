@@ -1,4 +1,4 @@
-package com.mpr.cursobatch.domain;
+package com.mpr.cursobatch.domain.bank;
 
 public enum Tipo {
   PRATA, OURO, PLATINA, DIAMANTE;

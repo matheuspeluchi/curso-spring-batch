@@ -5,7 +5,7 @@ import org.springframework.batch.item.support.builder.ClassifierCompositeItemPro
 import org.springframework.classify.Classifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import com.mpr.cursobatch.domain.ClientWithTransaction;
+import com.mpr.cursobatch.domain.client.ClientWithTransaction;
 import com.mpr.cursobatch.jobs.general.processors.ClientProcessor;
 import com.mpr.cursobatch.jobs.general.processors.TransactionProcessor;
 

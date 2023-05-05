@@ -7,7 +7,7 @@ import org.springframework.batch.item.ItemReader;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.PlatformTransactionManager;
-import com.mpr.cursobatch.domain.ClientWithTransaction;
+import com.mpr.cursobatch.domain.client.ClientWithTransaction;
 import com.mpr.cursobatch.jobs.general.wirters.DefaultWriterConfig;
 
 @Configuration

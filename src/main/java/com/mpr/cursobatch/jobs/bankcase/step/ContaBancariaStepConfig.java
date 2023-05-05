@@ -9,8 +9,8 @@ import org.springframework.batch.item.ItemWriter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.PlatformTransactionManager;
-import com.mpr.cursobatch.domain.BankAccount;
-import com.mpr.cursobatch.domain.BankClient;
+import com.mpr.cursobatch.domain.bank.BankAccount;
+import com.mpr.cursobatch.domain.bank.BankClient;
 
 // @Configuration
 public class ContaBancariaStepConfig {

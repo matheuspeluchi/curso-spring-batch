@@ -1,4 +1,4 @@
-package com.mpr.cursobatch.domain;
+package com.mpr.cursobatch.domain.bank;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

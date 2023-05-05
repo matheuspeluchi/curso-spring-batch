@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.classify.Classifier;
-import com.mpr.cursobatch.domain.BankAccount;
-import com.mpr.cursobatch.domain.BankClient;
-import com.mpr.cursobatch.domain.Tipo;
+import com.mpr.cursobatch.domain.bank.BankAccount;
+import com.mpr.cursobatch.domain.bank.BankClient;
+import com.mpr.cursobatch.domain.bank.Tipo;
 
 public class BankAccountGeneratorClassifier
     implements Classifier<BankClient, ItemProcessor<?, ? extends BankAccount>> {

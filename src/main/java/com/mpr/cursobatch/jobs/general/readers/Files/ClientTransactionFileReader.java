@@ -7,8 +7,8 @@ import org.springframework.batch.item.file.FlatFileItemReader;
 import org.springframework.batch.item.file.ResourceAwareItemReaderItemStream;
 import org.springframework.core.io.Resource;
 import org.springframework.lang.Nullable;
-import com.mpr.cursobatch.domain.ClientWithTransaction;
 import com.mpr.cursobatch.domain.Transaction;
+import com.mpr.cursobatch.domain.client.ClientWithTransaction;
 
 public class ClientTransactionFileReader implements ItemStreamReader<ClientWithTransaction>,
     ResourceAwareItemReaderItemStream<ClientWithTransaction> {

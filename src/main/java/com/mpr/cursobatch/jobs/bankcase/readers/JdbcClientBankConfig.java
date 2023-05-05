@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import com.mpr.cursobatch.domain.BankClient;
+import com.mpr.cursobatch.domain.bank.BankClient;
 
 @Configuration
 public class JdbcClientBankConfig {

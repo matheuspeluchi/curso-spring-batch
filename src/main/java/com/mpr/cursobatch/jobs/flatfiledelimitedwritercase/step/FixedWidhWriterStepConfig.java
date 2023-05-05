@@ -8,7 +8,7 @@ import org.springframework.batch.item.ItemWriter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.PlatformTransactionManager;
-import com.mpr.cursobatch.domain.Client;
+import com.mpr.cursobatch.domain.client.Client;
 
 // @Configuration
 public class FixedWidhWriterStepConfig {

@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.RowMapper;
-import com.mpr.cursobatch.domain.ClientWithTransaction;
+import com.mpr.cursobatch.domain.client.ClientWithTransaction;
 
 @Configuration
 public class JdbcSkipExceptionCursorReaderConfig {

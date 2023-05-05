@@ -10,7 +10,7 @@ import org.springframework.batch.item.validator.ValidationException;
 import org.springframework.batch.item.validator.Validator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import com.mpr.cursobatch.domain.SingleClient;
+import com.mpr.cursobatch.domain.client.SingleClient;
 
 @Configuration
 public class ValidatorProcessorConfig {

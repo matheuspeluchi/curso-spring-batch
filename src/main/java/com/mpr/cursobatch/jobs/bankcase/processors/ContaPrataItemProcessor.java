@@ -1,9 +1,9 @@
 package com.mpr.cursobatch.jobs.bankcase.processors;
 
 import org.springframework.batch.item.ItemProcessor;
-import com.mpr.cursobatch.domain.BankAccount;
-import com.mpr.cursobatch.domain.BankClient;
-import com.mpr.cursobatch.domain.Tipo;
+import com.mpr.cursobatch.domain.bank.BankAccount;
+import com.mpr.cursobatch.domain.bank.BankClient;
+import com.mpr.cursobatch.domain.bank.Tipo;
 
 public class ContaPrataItemProcessor implements ItemProcessor<BankClient, BankAccount> {
 

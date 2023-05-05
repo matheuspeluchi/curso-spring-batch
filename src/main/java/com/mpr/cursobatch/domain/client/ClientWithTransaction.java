@@ -1,7 +1,8 @@
-package com.mpr.cursobatch.domain;
+package com.mpr.cursobatch.domain.client;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.mpr.cursobatch.domain.Transaction;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
