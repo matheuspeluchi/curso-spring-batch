@@ -9,13 +9,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class ScriptJob {
+public class ContasBancariasJob {
 
-  // @Bean
-  public Job script(JobRepository jobRepository, Step step) {
-    return new JobBuilder("ScriptJob", jobRepository).start(step)
-        .incrementer(new RunIdIncrementer()).build();
+  @Bean
+  public Job contaBancaria(JobRepository repository, Step step) {
+    return new JobBuilder("ContasBancariasJob", repository)
+        .start(step)
+        .incrementer(new RunIdIncrementer())
+        .build();
+
   }
-
-
 }

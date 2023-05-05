@@ -14,7 +14,7 @@ import com.mpr.cursobatch.domain.Client;
 @Configuration
 public class JdbcSkipExceptionCursorReaderConfig {
 
-  @Bean
+  // @Bean
   public ItemReader<Client> jdbcSkipExceptionCursorItemReader(
       @Qualifier("appDataSource") DataSource dataSource) {
     return new JdbcCursorItemReaderBuilder<Client>()

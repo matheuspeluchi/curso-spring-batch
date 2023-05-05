@@ -11,32 +11,29 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import com.mpr.cursobatch.domain.Client;
+import com.mpr.cursobatch.domain.BankClient;
 
 @Configuration
-public class JdbcPagingReaderConfig {
+public class JdbcClientBankConfig {
 
-  // @Bean
-  public JdbcPagingItemReader<Client> jdbcPagingItemReader(
+  @Bean
+  public JdbcPagingItemReader<BankClient> jdbcClientBankItemReader(
       @Qualifier("appDataSource") DataSource dataSource, PagingQueryProvider queryProvider) {
-
-    return new JdbcPagingItemReaderBuilder<Client>()
-        .name("jdbcPagingItemReader")
+    return new JdbcPagingItemReaderBuilder<BankClient>()
+        .name("jdbcClientBankItemReader")
         .dataSource(dataSource)
         .queryProvider(queryProvider)
-        .pageSize(1)
-        .rowMapper(new BeanPropertyRowMapper<Client>(Client.class))
+        .rowMapper(new BeanPropertyRowMapper<BankClient>(BankClient.class))
         .build();
   }
 
-
-  // @Bean
+  @Bean
   public SqlPagingQueryProviderFactoryBean queryProvider(
       @Qualifier("appDataSource") DataSource dataSource) {
     SqlPagingQueryProviderFactoryBean queryProvider = new SqlPagingQueryProviderFactoryBean();
     queryProvider.setDataSource(dataSource);
     queryProvider.setSelectClause("select *");
-    queryProvider.setFromClause("from customer");
+    queryProvider.setFromClause("from cliente");
     queryProvider.setSortKey("email");
     return queryProvider;
   }

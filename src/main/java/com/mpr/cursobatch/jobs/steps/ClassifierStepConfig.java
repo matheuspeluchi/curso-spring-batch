@@ -12,20 +12,20 @@ import com.mpr.cursobatch.domain.SingleClient;
 import com.mpr.cursobatch.jobs.wirters.DefaultWriterConfig;
 
 @Configuration
-public class ScriptStepConfig {
+public class ClassifierStepConfig {
 
 
   // @Bean
   @SuppressWarnings({"unchecked"})
   public Step scriptStep(JobRepository jobRepository,
       PlatformTransactionManager transactionManager,
-      FlatFileItemReader<SingleClient> processadorValidacaoReader,
-      ItemProcessor<SingleClient, SingleClient> validationProcessor) {
+      FlatFileItemReader multiplesFormatsFileReader,
+      ItemProcessor classifierProcessor) {
 
     return new StepBuilder("scriptStep", jobRepository)
         .<SingleClient, SingleClient>chunk(1, transactionManager)
-        .reader(processadorValidacaoReader)
-        .processor(validationProcessor)
+        .reader(multiplesFormatsFileReader)
+        .processor(classifierProcessor)
         .writer(DefaultWriterConfig.fixedWidthFileWriter())
         .build();
   }

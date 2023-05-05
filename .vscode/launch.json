@@ -9,8 +9,8 @@
       "name": "CursobatchApplication",
       "request": "launch",
       "mainClass": "com.mpr.cursobatch.CursobatchApplication",
-      "args": "clientFiles=file:assets/clientValidation.txt",
-      "vmArgs": "-Dnashorn.args=scripting",
+      "args": "clientFile=file:assets/clients_multiples.txt",
+      "vmArgs": "-Dnashorn.args=-scripting",
       "projectName": "cursobatch"
     }
   ]

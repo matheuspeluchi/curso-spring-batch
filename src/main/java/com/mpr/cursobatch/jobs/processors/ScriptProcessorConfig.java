@@ -16,7 +16,7 @@ public class ScriptProcessorConfig {
         .language("nashorn")
         .scriptSource(
             "var email = item.getEmail();"
-                + "var fileExist = `ls | grep ${email.txt}`;"
+                + "var fileExist = `ls | grep ${email}.txt`;"
                 + "if (!fileExist) item; else null;")
         .build();
   }
