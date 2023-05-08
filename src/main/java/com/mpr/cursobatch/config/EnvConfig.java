@@ -12,7 +12,7 @@ public class EnvConfig {
   public static PropertySourcesPlaceholderConfigurer config() {
     PropertySourcesPlaceholderConfigurer configurer = new PropertySourcesPlaceholderConfigurer();
     configurer.setLocation(new FileSystemResource(
-        "/home/matheuspeluchi/projetos/SpringBatchConfig.properties"));
+        "/home/matheuspeluchi/Projetos/SpringBatchConfig.properties"));
     return configurer;
   }
 }

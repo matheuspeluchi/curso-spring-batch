@@ -1,9 +1,11 @@
 package com.mpr.cursobatch.domain.bank;
 
 public enum Tipo {
-  PRATA, OURO, PLATINA, DIAMANTE;
+  PRATA, OURO, PLATINA, DIAMANTE, INVALIDA;
 
-  public static Tipo fromFaixaSalarial(double faixaSalarial) {
+  public static Tipo fromFaixaSalarial(Double faixaSalarial) {
+    if (faixaSalarial == null)
+      return INVALIDA;
     if (faixaSalarial <= 3000)
       return PRATA;
     else if (faixaSalarial > 3000 && faixaSalarial <= 5000)

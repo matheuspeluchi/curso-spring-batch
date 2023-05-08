@@ -18,6 +18,7 @@ public class BankAccountGeneratorClassifier
           put(Tipo.OURO, new ContaOuroItemProcessor());
           put(Tipo.PLATINA, new ContaPlatinaItemProcessor());
           put(Tipo.DIAMANTE, new ContaDiamanteItemProcessor());
+          put(Tipo.INVALIDA, new ContaInvalidaItemProcessor());
         }
       };
 
